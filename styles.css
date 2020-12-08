@@ -1,0 +1,173 @@
+html {
+  background-color: #000;
+  color: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: calc(100vw - 64px);
+  height: calc(100vh - 64px);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 500;
+  color: greenyellow;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 8px;
+}
+
+.lost {
+  color: red;
+}
+
+h2,
+h3 {
+  font-size: 22px;
+  font-weight: 300;
+  color: darkslategray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 4px;
+}
+
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.leaderboard h2 {
+  font-size: 32px;
+  color: cadetblue;
+  text-align: center;
+}
+
+#leaderboard {
+  border: 1px solid #222;
+}
+
+.lb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  padding: 4px 8px;
+}
+
+.lb-row:nth-child(even) {
+  background-color: #222;
+}
+
+.lb-row div:nth-child(1) {
+  font-size: 22px;
+  color: azure;
+  margin-right: 16px;
+}
+
+.lb-row div:nth-child(2) {
+  color: dimgray;
+  margin-right: 16px;
+}
+
+.lb-row div:nth-child(3) {
+  font-size: 32px;
+  color: lightgreen;
+}
+
+data {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 22px;
+  color: beige;
+}
+
+#grid {
+  width: 320px;
+  height: 320px;
+  border: 4px solid dimgray;
+  border-radius: 2px;
+}
+
+.snake {
+  background-color: greenyellow;
+  border-radius: 2px;
+}
+
+.head {
+  background-color: lightslategray;
+}
+
+.head-up {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.head-down {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.head-left {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.head-right {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.food {
+  background-color: darkkhaki;
+  border-radius: 50%;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .leaderboard {
+    margin-top: 8px;
+    align-items: center;
+  }
+}
