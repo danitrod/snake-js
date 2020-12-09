@@ -37,9 +37,9 @@ if (Object.keys(leaderboard).length > 0) {
       pointsDiv.innerText = leaderboard[time].score;
       const timeDiv = document.createElement('div');
       timeDiv.innerText =
-        date.getDay().toString().padStart(2, '0') +
+        date.getDate().toString().padStart(2, '0') +
         '/' +
-        date.getMonth().toString().padStart(2, '0') +
+        (date.getMonth() + 1).toString().padStart(2, '0') +
         '/' +
         date.getFullYear() +
         ' - ' +
