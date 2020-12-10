@@ -26,7 +26,7 @@ if (Object.keys(leaderboard).length > 0) {
   main.appendChild(lb);
   main.style.gridTemplateColumns = '1fr 1fr';
   Object.keys(leaderboard)
-    .sort((prev, next) => leaderboard[next].score - leaderboard[prev].score)
+    .sort((prev, next) => leaderboard[next].score - leaderboard[prev].score + 1)
     .map((time) => {
       const date = new Date(time);
       const div = document.createElement('div');
@@ -146,11 +146,12 @@ const walk = (snake, direction) => {
 
 let speed = STARTING_SPEED;
 let direction = 'r';
-let food = generateFood(grid);
-grid[food[0]][food[1]] = 2;
 
 let snake = [STARTING_POS];
 let snakeSize = STARTING_SNAKE_SIZE;
+
+let food = generateFood(snake);
+grid[food[0]][food[1]] = 2;
 
 document.addEventListener('keyup', (e) => {
   switch (e.key) {
@@ -229,7 +230,7 @@ const game = () => {
     if (snakeSize % 3 === 0) {
       speed /= INCREASE_SPEED_FACTOR;
     }
-    food = generateFood(grid, food);
+    food = generateFood(snake, food);
     grid[food[0]][food[1]] = 2;
   }
   paint(grid, snake, food);
