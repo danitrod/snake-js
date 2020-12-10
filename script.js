@@ -1,5 +1,5 @@
 const STARTING_SPEED = 0.2;
-const INCREASE_SPEED_FACTOR = 1.2;
+const INCREASE_SPEED_VALUE = 0.01;
 const STARTING_SNAKE_SIZE = 3;
 const STARTING_POS = [2, 2];
 const STORAGE_KEY = 'snake-leaderboard';
@@ -79,7 +79,6 @@ const generateFood = (snake, lastFood) => {
       Math.round(Math.random() * (GRID_SIZE - 1)),
       Math.round(Math.random() * (GRID_SIZE - 1))
     ];
-  console.log('new food at', f);
   return f;
 };
 
@@ -228,7 +227,7 @@ const game = () => {
   if (snake[0][0] === food[0] && snake[0][1] === food[1]) {
     snakeSize++;
     if (snakeSize % 3 === 0) {
-      speed /= INCREASE_SPEED_FACTOR;
+      speed -= INCREASE_SPEED_VALUE;
     }
     food = generateFood(snake, food);
     grid[food[0]][food[1]] = 2;
