@@ -1,5 +1,5 @@
 const STARTING_SPEED = 0.2;
-const INCREASE_SPEED_VALUE = 0.01;
+const INCREASE_SPEED_VALUE = 0.001;
 const STARTING_SNAKE_SIZE = 3;
 const STARTING_POS = [2, 2];
 const STORAGE_KEY = 'snake-leaderboard';
@@ -119,22 +119,26 @@ const paint = (grid, snake, food) => {
 const walk = (snake, direction) => {
   switch (direction) {
     case 'r':
-      if (snake[0][1] === GRID_SIZE - 1) return -1;
+      if (snake[0][1] === GRID_SIZE - 1) return [[snake[0][0], 0], ...snake];
+      // if (snake[0][1] === GRID_SIZE - 1) return -1;
       if (snake.some((p) => p[0] === snake[0][0] && p[1] === snake[0][1] + 1))
         return -1;
       return [[snake[0][0], snake[0][1] + 1], ...snake];
     case 'l':
-      if (snake[0][1] === 0) return -1;
+      if (snake[0][1] === 0) return [[snake[0][0], GRID_SIZE - 1], ...snake];
+      // if (snake[0][1] === 0) return -1;
       if (snake.some((p) => p[0] === snake[0][0] && p[1] === snake[0][1] - 1))
         return -1;
       return [[snake[0][0], snake[0][1] - 1], ...snake];
     case 'u':
-      if (snake[0][0] === 0) return -1;
+      if (snake[0][0] === 0) return [[GRID_SIZE - 1, snake[0][1]], ...snake];
+      // if (snake[0][0] === 0) return -1;
       if (snake.some((p) => p[0] === snake[0][0] - 1 && p[1] === snake[0][1]))
         return -1;
       return [[snake[0][0] - 1, snake[0][1]], ...snake];
     case 'd':
-      if (snake[0][0] === GRID_SIZE - 1) return -1;
+      if (snake[0][0] === GRID_SIZE - 1) return [[0, snake[0][1]], ...snake];
+      // if (snake[0][0] === GRID_SIZE - 1) return -1;
       if (snake.some((p) => p[0] === snake[0][0] + 1 && p[1] === snake[0][1]))
         return -1;
       return [[snake[0][0] + 1, snake[0][1]], ...snake];
